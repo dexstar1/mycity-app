@@ -2,7 +2,7 @@
   "name": "shards-dashboard-lite-react",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://youthful-curie-44a495.netlify.com",
+  "proxy": "http://localhost",
   "dependencies": {
     "camelize": "^1.0.0",
     "chart.js": "^2.7.3",
@@ -23,8 +23,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:prod": "cross-env REACT_APP_BASENAME=/demo/Mycity REACT_APP_GAID=UA-115105611-1 npm run build",
-    "build": "cross-env REACT_APP_BASENAME=/demo/shards-dashboard-lite-react react-scripts build",
+    "build:prod": "cross-env REACT_APP_BASENAME=/Mycity REACT_APP_GAID=UA-115105611-1 npm run build",
+    "build": "cross-env REACT_APP_BASENAME=/Mycity react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
