@@ -1,0 +1,19 @@
+.inline-flex{
+    margin: 20px 0px;
+}
+
+.col{
+    margin-bottom: 20px;
+}
+
+.m-auto{
+    margin-left: 20px !important;
+}
+
+.inline-flex li.nav-item {
+    margin-right: 10px;
+}
+
+.breadcrumbb{
+    padding-top: 20px;
+}
