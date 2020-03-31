@@ -19,7 +19,7 @@ export default function() {
     {
       title: "Survey/Reviews",
       htmlBefore: '<i class="material-icons">view_module</i>',
-      to: "/#,
+      to: "/#",
     },
     {
       title: "Marketing",
