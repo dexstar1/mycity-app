@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Card, CardHeader, CardBody, Nav, NavItem } from "shards-react";
+import { Container, Row, Col, Card, CardHeader, CardBody, Nav, NavItem, Button } from "shards-react";
 import CompleteFormExample from "../components/components-overview/CompleteFormExample";
 import { Link } from "react-router-dom";
 
@@ -38,73 +38,67 @@ const Home = () => (
     </Row>
 
     <Row>
-      <Col>
-        <Card small className="mb-4">
-          <CardHeader className="border-bottom">
-            <h6 className="m-0">Active Users</h6>
-          </CardHeader>
-          <CardBody className="p-0 pb-3">
-            <table className="table mb-0">
-              <thead className="bg-light">
-                <tr>
-                  <th scope="col" className="border-0">
-                    #
-                  </th>
-                  <th scope="col" className="border-0">
-                    First Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Last Name
-                  </th>
-                  <th scope="col" className="border-0">
-                    Country
-                  </th>
-                  <th scope="col" className="border-0">
-                    City
-                  </th>
-                  <th scope="col" className="border-0">
-                    Phone
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Ali</td>
-                  <td>Kerry</td>
-                  <td>Russian Federation</td>
-                  <td>Gdańsk</td>
-                  <td>107-0339</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Clark</td>
-                  <td>Angela</td>
-                  <td>Estonia</td>
-                  <td>Borghetto di Vara</td>
-                  <td>1-660-850-1647</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Jerry</td>
-                  <td>Nathan</td>
-                  <td>Cyprus</td>
-                  <td>Braunau am Inn</td>
-                  <td>214-4225</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Colt</td>
-                  <td>Angela</td>
-                  <td>Liberia</td>
-                  <td>Bad Hersfeld</td>
-                  <td>1-848-473-7416</td>
-                </tr>
-              </tbody>
-            </table>
-          </CardBody>
+        <CardBody>
+
+<Button theme="primary" className="mb-2 mr-1">
+  Add User
+</Button>
+
+<Button theme="info" className="mb-2 mr-1">
+  Automate
+</Button>
+
+<Button theme="success" className="mb-2 mr-1">
+  Reminders
+</Button>
+            <Card>
+          <table className="table mb-0">
+            <thead className="bg-light">
+            <tr>
+                <th scope="col" className="border-0">
+                Name
+                </th>
+                <th scope="col" className="border-0">
+                Business
+                </th>
+                <th scope="col" className="border-0">
+                Vocation
+                </th>
+                <th scope="col" className="border-0">
+                Phone
+                </th>
+                <th scope="col" className="border-0">
+                Email
+                </th>
+                <th scope="col" className="border-0">
+                Location
+                </th>
+                <th scope="col" className="border-0">
+                Website
+                </th>
+                <th scope="col" className="border-0">
+                Notes
+                </th>
+                <th scope="col" className="border-0">
+                Reminders
+                </th>
+                <th scope="col" className="border-0">
+                Tags
+                </th>
+                <th scope="col" className="border-0">
+                Ratings
+                </th>
+                <th scope="col" className="border-0">
+                Action
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+        </table>
         </Card>
-      </Col>
+      </CardBody>
     </Row>
    </Container>
 );

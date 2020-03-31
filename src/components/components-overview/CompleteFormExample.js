@@ -105,7 +105,7 @@ const CompleteFormExample = () => (
               </Col>
             </Row>
             <br />
-            <Button type="submit">Create New Account</Button>
+            <Button type="submit">Search</Button>
           </Form>
         </Col>
       </Row>
