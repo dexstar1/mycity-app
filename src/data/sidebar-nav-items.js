@@ -9,32 +9,32 @@ export default function() {
     {
       title: "3 Touch Program",
       htmlBefore: '<i class="material-icons">vertical_split</i>',
-      to: "/blog-posts",
+      to: "/#",
     },
     {
       title: "Articles",
       htmlBefore: '<i class="material-icons">note_add</i>',
-      to: "/add-new-post",
+      to: "/#",
     },
     {
       title: "Survey/Reviews",
       htmlBefore: '<i class="material-icons">view_module</i>',
-      to: "/components-overview",
+      to: "/#,
     },
     {
       title: "Marketing",
       htmlBefore: '<i class="material-icons">table_chart</i>',
-      to: "/tables",
+      to: "/#",
     },
     {
       title: "Reminders",
       htmlBefore: '<i class="material-icons">person</i>',
-      to: "/user-profile-lite",
+      to: "/#",
     },
     {
       title: "Tools",
       htmlBefore: '<i class="material-icons">error</i>',
-      to: "/errors",
+      to: "/#",
     }
   ];
 }
