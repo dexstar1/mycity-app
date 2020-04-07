@@ -1,36 +1,55 @@
-// import React from "react";
-// import "./App.css";
+import React from "react";
+import "./App.css";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-// import routes from "./routes";
+import DefaultLayout from "./views/Home";
 
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./shards-dashboard/styles/shards-dashboards.1.1.0.min.css";
 
-// export default () => (
-//   <Router>
-//     <Switch>
-//       {routes.map(
-//         ({ path, exact, layout: Layout, component: Component }, index) => {
-//           return (
-//             <Route
-//               key={index}
-//               path={path}
-//               exact={exact}
-//               render={() => (
-//                 <Layout>
-//                   <Component />
-//                 </Layout>
-//               )}
-//             />
-//           );
-//         }
-//       )}
+const App = () => <DefaultLayout />;
+
+export default App;
+
+// {routes.map(
+//   ({ path, exact, layout: Layout, component: Component }, index) => {
+//     return (
+//       <Router>
+//    <Switch>
+//       <Route>
+//        <Layout>
+//          <Home />
+//        </Layout>
+//       </Route>
 //     </Switch>
-//   </Router>
-// );
-//  <Router>
-//     <DefaultLayout>
-//       <Home />
-//     </DefaultLayout>
-//   </Router>
+//     </Router>
+
+// import React from "react";
+// import "./App.css";
+
+// import Home from "./views/Home";
+
+// const App = () => <Home />;
+
+// export default App;
+
+// <Router>
+//   <Switch>
+//     {routes.map(
+//       ({ path, exact, layout: Layout, component: Component }, index) => {
+//         return (
+//           <Route
+//             key={index}
+//             path={path}
+//             exact={exact}
+//             render={() => (
+//               <Layout>
+//                 <Component />
+//               </Layoutż
+//             )}
+//           />
+//         );
+//       }
+//     )}
+//   </Switch>
+// </Router>

@@ -1,19 +1,86 @@
-.inline-flex{
-    margin: 20px 0px;
+.inline-flex {
+  margin: 20px 0px;
 }
 
-.col{
-    margin-bottom: 20px;
+.col {
+  margin-bottom: 20px;
 }
 
-.m-auto{
-    margin-left: 20px !important;
+.m-auto {
+  margin-left: 20px !important;
 }
 
 .inline-flex li.nav-item {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
-.breadcrumbb{
-    padding-top: 20px;
+.breadcrumbb {
+  padding-top: 20px;
+}
+
+.sticky-top {
+  left: 15%;
+  width: 85%;
+}
+
+aside {
+  padding: 0px !important;
+}
+
+aside .nav-link span {
+  width: 80%;
+  float: left;
+}
+
+.d-inliine-block.item-icon-wrapper {
+  width: 10%;
+  float: left;
+  margin-right: 10px;
+}
+
+.main-sidebar {
+  box-shadow: 0 0.125rem 9.375rem rgba(90, 97, 105, 0.1) !important;
+}
+
+.main-sidebar .nav-wrapper {
+  padding-top: 20px;
+}
+
+.breadcrumbb {
+  padding-top: 30px;
+}
+
+.main-sidebar .nav .nav-item .nav-link {
+  font-size: 14px;
+}
+
+.custom-control {
+  display: inline-block;
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.number-of-reviews {
+  width: 100%;
+  float: left;
+}
+
+.number-of-reviews li {
+  list-style: none;
+  display: inline-block;
+  width: 100%;
+}
+
+.number-of-reviews li > div {
+  width: 30%;
+  float: left;
+}
+
+.add-radio {
+  width: 15%;
+  float: left;
+}
+
+.radio-group {
+  width: 100%;
 }
