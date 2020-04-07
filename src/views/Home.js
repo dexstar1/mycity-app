@@ -104,10 +104,8 @@ export default function DefaultLayout() {
     <Container fluid>
       <Row>
         <>
-          <Router>
-            <MainNavbar />
-            <Homepage />
-          </Router>
+          <MainNavbar />
+          <Homepage />
         </>
       </Row>
     </Container>
@@ -116,7 +114,7 @@ export default function DefaultLayout() {
 
 function Homepage() {
   return (
-    <Router>
+    <>
       <aside className="main-sidebar px=0 col-12 open col-md-3 col-lg-2">
         <div className="main-navbar">
           <nav className="align-items-stretch bg-white flex-md-wrap border-bottom p-0 navbar navbar-light">
@@ -273,7 +271,7 @@ function Homepage() {
           </div>
         </Container>
       </Col>
-    </Router>
+    </>
   );
 }
 
