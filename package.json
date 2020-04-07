@@ -2,6 +2,7 @@
   "name": "Mycity",
   "version": "1.0.0",
   "private": true,
+  "homepage": "http://dexstar1.github.io/mycity-app",
   "dependencies": {
     "camelize": "^1.0.0",
     "chart.js": "^2.7.3",
@@ -21,6 +22,8 @@
     "shortid": "^2.2.14"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build:prod": "cross-env REACT_APP_BASENAME=/Mycity REACT_APP_GAID=UA-115105611-1 npm run build",
     "build": "cross-env REACT_APP_BASENAME=/Mycity react-scripts build",
@@ -35,5 +38,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
