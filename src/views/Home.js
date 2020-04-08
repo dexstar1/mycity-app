@@ -19,10 +19,6 @@ import {
 } from "shards-react";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import "../App.css";
-
-// import { Redirect } from "react-router-dom";
-
-// Route Views
 import UserProfileLite from "./UserProfileLite";
 import AddNewPost from "./AddNewPost";
 import Errors from "./Errors";
@@ -30,13 +26,12 @@ import ComponentsOverview from "./ComponentsOverview";
 import Tables from "./Tables";
 import BlogPosts from "./BlogPosts";
 import SignIn from "./SignIn";
-
 import MainNavbar from "../components/layout/MainNavbar/MainNavbar";
-import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 
 const routes = [
   {
     path: "/",
+    exact: true,
     main: () => <SearchUsers />,
   },
   {
@@ -68,10 +63,6 @@ const routes = [
     main: () => <ComponentsOverview />,
   },
   {
-    path: "/ComponentsOverview",
-    main: () => <ComponentsOverview />,
-  },
-  {
     path: "/BlogPosts",
     main: () => <BlogPosts />,
   },
@@ -93,22 +84,24 @@ const routes = [
   },
 ];
 
-export default function DefaultLayout() {
-  return (
-    <Container fluid>
-      <Row>
-        <>
+class DefaultLayout extends React.Component {
+  render() {
+    return (
+      <Container fluid>
+        <Row>
           <MainNavbar />
           <Homepage />
-        </>
-      </Row>
-    </Container>
-  );
+        </Row>
+      </Container>
+    );
+  }
 }
+
+export default DefaultLayout;
 
 function Homepage() {
   return (
-    <>
+    <Router>
       <aside className="main-sidebar px=0 col-12 open col-md-3 col-lg-2">
         <div className="main-navbar">
           <nav className="align-items-stretch bg-white flex-md-wrap border-bottom p-0 navbar navbar-light">
@@ -265,7 +258,7 @@ function Homepage() {
           </div>
         </Container>
       </Col>
-    </>
+    </Router>
   );
 }
 
