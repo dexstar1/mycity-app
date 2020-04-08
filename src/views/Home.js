@@ -40,10 +40,6 @@ const routes = [
     main: () => <SearchUsers />,
   },
   {
-    path: "/SignIn",
-    main: () => <SignIn />,
-  },
-  {
     path: "/TopRated",
     main: () => <TopRated />,
   },
@@ -92,8 +88,8 @@ const routes = [
     main: () => <Wizard />,
   },
   {
-    path: "/SearchUsers",
-    main: () => <SearchUsers />,
+    path: "/SignIn",
+    main: () => <SignIn />,
   },
 ];
 
