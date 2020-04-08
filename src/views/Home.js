@@ -37,12 +37,10 @@ import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 const routes = [
   {
     path: "/",
-    exact: true,
     main: () => <SearchUsers />,
   },
   {
     path: "/SignIn",
-    exact: true,
     main: () => <SignIn />,
   },
   {
