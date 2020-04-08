@@ -41,6 +41,11 @@ const routes = [
     main: () => <SearchUsers />,
   },
   {
+    path: "/SignIn",
+    exact: true,
+    main: () => <SignIn />,
+  },
+  {
     path: "/TopRated",
     main: () => <TopRated />,
   },
@@ -91,11 +96,6 @@ const routes = [
   {
     path: "/SearchUsers",
     main: () => <SearchUsers />,
-  },
-  {
-    path: "/SignIn",
-    exact: true,
-    main: () => <SignIn />,
   },
 ];
 
