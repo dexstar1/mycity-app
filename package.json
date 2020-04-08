@@ -2,7 +2,7 @@
   "name": "Mycity",
   "version": "1.0.0",
   "private": true,
-  "homepage": "http://dexstar1.github.io/mycity-app",
+  "homepage": "https://youthful-curie-44a495.netlify.com/",
   "dependencies": {
     "camelize": "^1.0.0",
     "chart.js": "^2.9.3",
