@@ -7,9 +7,17 @@ import {
   FormInput,
   Col,
   Form,
+  Card,
+  CardHeader,
+  ListGroup,
+  ListGroupItem, Nav, NavItem, NavLink
 } from "shards-react";
+import ButtonGroups from "../components/components-overview/ButtonGroups";
+import InputGroups from "../components/components-overview/InputGroups";
+import SeamlessInputGroups from "../components/components-overview/SeamlessInputGroups";
+
 import { Link } from "react-router-dom";
-import Home from "./Home";
+// import Home from "./Home";
 // import BlogPosts from "./BlogPosts";
 import "../App.css";
 
@@ -17,40 +25,54 @@ class SignIn extends React.Component {
   render() {
     return (
       <div>
-        <Container fluid className="main-content-container px-4 pb-4">
-          <Col sm="12" md="6">
-            <strong className="text-muted d-block mb-2">Sign in</strong>
-            <Form>
-              <InputGroup seamless className="mb-3">
-                <InputGroupAddon type="prepend">
-                  <InputGroupText>
-                    <i className="material-icons">person</i>
-                  </InputGroupText>
-                </InputGroupAddon>
+          <Card>
+        <Nav>
+            <NavItem>
+                <NavLink active href="#">
+                Active
+                </NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink href="#">Link</NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink href="#">Another Link</NavLink>
+            </NavItem>
+            <NavItem>
+                <NavLink disabled href="#">
+                Disabled Link
+                </NavLink>
+            </NavItem>
+        </Nav>
+        </Card>
+        <Container fluid className="main-content-container px-4 pb-8">
+          <Col className="row justify-content-center">
+            <Card small className="mb-4">
+                <CardHeader className="border-bottom">
+                <h6 className="m-0">Sign In</h6>
+                </CardHeader>
 
-                <FormInput value="design.revision" onChange={() => {}} />
-              </InputGroup>
+                <ListGroup flush>
+                <ListGroupItem className="px-3">
+                    <Form>
+                    <strong className="text-muted d-block mb-3">
+                        Button Groups
+                    </strong>
+                    <ButtonGroups />
 
-              <InputGroup seamless className="mb-3">
-                <InputGroupAddon type="prepend">
-                  <InputGroupText>
-                    <i className="material-icons">lock</i>
-                  </InputGroupText>
-                </InputGroupAddon>
-                <FormInput
-                  type="password"
-                  value="mySuperSecretPassword"
-                  onChange={() => {}}
-                />
-              </InputGroup>
-              <Link
-                to="/Home"
-                component={Home}
-                className="btn btn-white mb-2 mr-1"
-              >
-                Sign In
-              </Link>
-            </Form>
+                    <strong className="text-muted d-block mb-2">
+                        Input Groups
+                    </strong>
+                    <InputGroups />
+
+                    <strong className="text-muted d-block mb-2">
+                        Seamless Input Groups
+                    </strong>
+                    <SeamlessInputGroups />
+                    </Form>
+                </ListGroupItem>
+                </ListGroup>
+            </Card>
           </Col>
         </Container>
       </div>
