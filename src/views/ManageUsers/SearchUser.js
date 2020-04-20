@@ -15,8 +15,14 @@ import {
     Modal, 
   } from "shards-react";
 
+import MultiSelect from "react-multi-select-component";
 // import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
+// const options = [
+//     { label: "Grapes 🍇", value: "grapes" },
+//     { label: "Mango 🥭", value: "mango" },
+//     { label: "Strawberry 🍓", value: "strawberry" },
+//   ];
 
 class SearchUser extends React.Component {
 
@@ -30,11 +36,11 @@ class SearchUser extends React.Component {
             business: "",
             website: "",
             vocation: "",
-            lifestyle: "",
+            lifestyle: [],
             city: "",
             note: "",
             meet: "",
-            tags: "",
+            tags: [],
             selectedRating: "",
             email: "",
             memberData: {},
@@ -59,12 +65,16 @@ class SearchUser extends React.Component {
         this.cityChange = this.cityChange.bind(this);
         this.entryChange = this.entryChange.bind(this);
         this.tagsChange = this.tagsChange.bind(this);
+        // this.setSelected = this.setSelected.bind(this);
+
     }
 
     componentDidMount() {
         this.getCombinedData();
         this.submitData()
     }
+
+    
 
     getCombinedData() {
         fetch("./api/combined-data")
@@ -178,9 +188,9 @@ class SearchUser extends React.Component {
         });
     }
 
-    lifestyleChange(event) {
+    lifestyleChange(selected) {
         this.setState({
-            lifestyle: event.target.value
+            lifestyle: selected
         });
     }
 
@@ -196,9 +206,9 @@ class SearchUser extends React.Component {
         });
     }
 
-    tagsChange(event) {
+    tagsChange(selected) {
         this.setState({
-            tags: event.target.value
+            tags: selected
         });
     }
 
@@ -372,7 +382,15 @@ class SearchUser extends React.Component {
                                     <Row>
                                         <Col md="4">
                                             <FormGroup>
-                                                <FormSelect value={this.state.tags} onChange={this.tagsChange} id="addTags">
+                                                {/* <pre>{JSON.stringify(this.state.selected)}</pre> */}
+                                                <MultiSelect
+                                                    options={this.state.combinedData.tag}
+                                                    value={this.state.tags}
+                                                    onChange={this.tagsChange}
+                                                    labelledBy={"Select"}
+                                                />
+
+                                                {/* <FormSelect value={this.state.tags} onChange={this.tagsChange} id="addTags">
                                                     <option>Specify Tags...</option>
                                                     {
                                                         this.state.combinedData.tag ?
@@ -382,12 +400,12 @@ class SearchUser extends React.Component {
                                                             :
                                                         null
                                                     }
-                                                </FormSelect>
+                                                </FormSelect> */}
                                             </FormGroup>
                                         </Col>
                                         <Col md="4">
                                             <FormGroup>
-                                                <FormSelect value={this.state.lifestyle} onChange={this.lifestyleChange} id="addLifestyle">
+                                                {/* <FormSelect value={this.state.lifestyle} onChange={this.lifestyleChange} id="addLifestyle">
                                                     <option>Specify Lifestyle...</option>
                                                     {
                                                         this.state.combinedData.lifestyle ?
@@ -397,7 +415,14 @@ class SearchUser extends React.Component {
                                                             :
                                                         null
                                                     }
-                                                </FormSelect>
+                                                </FormSelect> */}
+
+                                                <MultiSelect
+                                                    options={this.state.combinedData.lifestyle}
+                                                    value={this.state.lifestyle}
+                                                    onChange={this.lifestyleChange}
+                                                    labelledBy={"Select"}
+                                                />
                                                 <span style={{ fontSize: "12px" }}>
                                                     (Multiple lifestyle can be selected)
                                                 </span>

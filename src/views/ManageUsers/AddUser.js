@@ -16,6 +16,8 @@ import {
     FormRadio,
   } from "shards-react";
 
+import MultiSelect from "react-multi-select-component";
+
 // import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
 class AddUser extends React.Component {
@@ -30,12 +32,13 @@ class AddUser extends React.Component {
             phone: "",
             business: "",
             website: "",
-            vocation: "",
-            lifestyle: "",
+            vocation: [],
+            vocationNew: [],
+            lifestyle: [],
             city: "",
             note: "",
             meet: "",
-            tags: "",
+            tags: [],
             rating: "",
             group: "",
             isLoading: false,
@@ -58,25 +61,37 @@ class AddUser extends React.Component {
         this.noteChange = this.noteChange.bind(this);
         this.meetChange = this.meetChange.bind(this);
         this.tagsChange = this.tagsChange.bind(this);
+        // this.rearrageVocation = this.rearrageVocation.bind(this);
 
-        // this.submitData();
     }
 
     componentDidMount() {
-        this.getCombinedData();
+        this.getCombinedData().then(() => {
+            this.rearrageVocation();
+        });
     }
 
-    getCombinedData() {
-        fetch("./api/combined-data")
+    rearrageVocation() {
+            let x = this.state.combinedData.vocation.map((vocation, index) => {
+                return {
+                    label : vocation,
+                    value: vocation
+                }
+            })
+
+            this.setState({
+                vocationNew: x
+            })
+    }
+
+    async getCombinedData() {
+        await fetch("./api/combined-data")
             .then((response) => response.json())
             .then( (responseJson) => {
-                console.log(responseJson)
-                // if (responseJson.status == true) {
                     this.setState({
                         combinedData: responseJson,
                         isLoading: false
                     })
-                // }
             })
             .catch((error) => {
                 
@@ -88,12 +103,17 @@ class AddUser extends React.Component {
         this.setState({isLoading: true, alert: true})
         fetch("./api/user", {
             method: 'POST',
-            //   headers: {
-            //     'Authorization' : 'Bearer '+this.props.user.token,
-            //     'Accept': 'application/json',
-            //     'Content-Type': 'application/json',
-            //   },
-              body: JSON.stringify(this.state)
+              body: JSON.stringify({
+                "name": this.state.name,
+                "email": this.state.email,
+                "phone": this.state.phone,
+                "zip": this.state.zip,
+                "vocation": this.state.vocation,
+                "lifestyle": this.state.lifestyle,
+                "city": this.state.city,
+                "tags": this.state.tags,
+                "entry": this.state.entry,
+            })
             })
             .then((response) => response.json())
             .then( (responseJson) => {
@@ -158,15 +178,15 @@ class AddUser extends React.Component {
         });
     }
 
-    vocationChange(event) {
+    vocationChange(selected) {
         this.setState({
-            vocation: event.target.value
+            vocation: selected
         });
     }
 
-    lifestyleChange(event) {
+    lifestyleChange(selected) {
         this.setState({
-            lifestyle: event.target.value
+            lifestyle: selected
         });
     }
 
@@ -188,9 +208,9 @@ class AddUser extends React.Component {
         });
     }
 
-    tagsChange(event) {
+    tagsChange(selected) {
         this.setState({
-            tags: event.target.value
+            tags: selected
         });
     }
     
@@ -281,7 +301,7 @@ class AddUser extends React.Component {
                                 <Col md="4">
                                     <FormGroup>
                                         <label htmlFor="addVocation">Vocations</label>
-                                        <FormSelect value={this.state.vocation} onChange={this.vocationChange} id="addVocation">
+                                        {/* <FormSelect value={this.state.vocation} onChange={this.vocationChange} id="addVocation">
                                             <option>Choose Vocation...</option>
                                             {
                                                 this.state.combinedData.vocation ?
@@ -291,7 +311,21 @@ class AddUser extends React.Component {
                                                     :
                                                 null
                                             }
-                                        </FormSelect>
+                                        </FormSelect> */}
+
+                                        {
+                                            this.state.vocationNew ?
+
+                                            <MultiSelect
+                                                options={this.state.vocationNew}
+                                                value={this.state.vocation}
+                                                onChange={this.vocationChange}
+                                                labelledBy={"Select"}
+                                            />
+                                            :
+                                            null
+                                        }
+
                                     </FormGroup>
                                 </Col>
                             </Row>
@@ -299,7 +333,7 @@ class AddUser extends React.Component {
                                 <Col md="4">
                                     <FormGroup>
                                         <label htmlFor="addLifestyle">lifestyle</label>
-                                        <FormSelect value={this.state.lifestyle} onChange={this.lifestyleChange} id="addLifestyle">
+                                        {/* <FormSelect value={this.state.lifestyle} onChange={this.lifestyleChange} id="addLifestyle">
                                             <option>Specify Lifestyle...</option>
                                             {
                                                 this.state.combinedData.lifestyle ?
@@ -309,7 +343,20 @@ class AddUser extends React.Component {
                                                     :
                                                 null
                                             }
-                                        </FormSelect>
+                                        </FormSelect> */}
+
+                                        {
+                                            this.state.combinedData.lifestyle ?
+
+                                            <MultiSelect
+                                                options={this.state.combinedData.lifestyle}
+                                                value={this.state.lifestyle}
+                                                onChange={this.lifestyleChange}
+                                                labelledBy={"Select"}
+                                            />
+                                            :
+                                            null
+                                        }
                                     </FormGroup>
                                 </Col>
                                 <Col md="4">
@@ -351,23 +398,23 @@ class AddUser extends React.Component {
                                         <label htmlFor="addToMeet">
                                             Who do they want to meet by vocation
                                         </label>
-                                        <FormSelect value={this.state.meet} onChange={this.meetChange} id="addToMeet">
-                                            <option>Choose Vocation...</option>
-                                            {
-                                                this.state.combinedData.vocation ?
-                                                    this.state.combinedData.vocation.map((vocation, index) => (
-                                                        <option key={index}>{vocation}</option>
-                                                    ))
-                                                    :
-                                                null
-                                            }
-                                        </FormSelect>
+                                        {
+                                            this.state.vocationNew ?
+
+                                            <MultiSelect
+                                                options={this.state.vocationNew}
+                                                value={this.state.vocation}
+                                                onChange={this.vocationChange}
+                                                labelledBy={"Choose Vocation"}
+                                            />
+                                            :
+                                            null
+                                        }
                                     </FormGroup>
                                 </Col>
                                 <Col md="4">
                                     <FormGroup>
-                                        <label htmlFor="addTags">Tags:</label>
-                                        <FormSelect value={this.state.tags} onChange={this.tagsChange} id="addTags">
+                                         {/* <FormSelect value={this.state.tags} onChange={this.tagsChange} id="addTags">
                                             <option>Specify Tags...</option>
                                             {
                                                 this.state.combinedData.tag ?
@@ -377,7 +424,21 @@ class AddUser extends React.Component {
                                                     :
                                                 null
                                             }
-                                        </FormSelect>
+                                        </FormSelect> */}
+                                        <label htmlFor="addTags">Tags:</label>
+                                        {
+                                                this.state.combinedData.tag ?
+                                       
+                                        <MultiSelect
+                                            options={this.state.combinedData.tag}
+                                            value={this.state.tags}
+                                            onChange={this.tagsChange}
+                                            labelledBy={"Select"}
+                                        />
+
+                                        :
+                                                null
+                                            }
                                     </FormGroup>
                                 </Col>
                                 <Col md="4">
