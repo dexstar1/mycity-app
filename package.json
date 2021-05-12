@@ -5,7 +5,7 @@
   "homepage": "https://youthful-curie-44a495.netlify.com/",
   "dependencies": {
     "camelize": "^1.0.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "classnames": "^2.2.6",
     "cross-env": "^7.0.2",
     "dateformat": "^3.0.3",
